@@ -1,0 +1,80 @@
+"use client";
+import React from "react";
+
+/**
+ * ClientsStrip — scrolling marquee of esteemed client logos
+ *
+ * HOW TO ADD/CHANGE LOGOS:
+ *  1. Drop the image file into /public/clients/  (PNG, JPG, SVG, WEBP)
+ *  2. Update the `clients` array below to match the filename
+ *  3. The strip hot-reloads automatically
+ */
+const clients = [
+    { name: "", logo: "/clients/brikoven.png" },
+    { name: "", logo: "/clients/abd.png" },
+    { name: "", logo: "/clients/bpl.png" },
+    { name: "", logo: "/clients/ro.png" },
+    { name: "UB City", logo: "/clients/ub.png" },
+    // { name: "Blinkit", logo: "/clients/blinkit.png" },
+    // { name: "Zepto", logo: "/clients/zepto.png" },
+    // { name: "Swiggy", logo: "/clients/swiggy.png" },
+    // { name: "Lenskart", logo: "/clients/lenskart.png" },
+    // { name: "Urban Company", logo: "/clients/urbancompany.png" },
+    // { name: "PhonePe", logo: "/clients/phonepe.png" },
+    // { name: "Nykaa", logo: "/clients/nykaa.png" },
+];
+
+const ClientsStrip = () => {
+    return (
+        <div className="w-full my-8">
+            {/* Section label */}
+            <p className="text-center text-sm font-bold uppercase tracking-[0.25em] text-gray-900 mb-5">
+                Our Esteemed Clients
+            </p>
+
+            {/* Scrolling strip */}
+            <div className="relative overflow-hidden bg-white border-y border-gray-200 py-6">
+                {/* Left fade */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-white to-transparent" />
+                {/* Right fade */}
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+
+                {/* Track — duplicated to create infinite loop */}
+                <div
+                    className="flex w-max"
+                    style={{ animation: "clients-scroll 30s linear infinite" }}
+                    onMouseEnter={e => (e.currentTarget.style.animationPlayState = "paused")}
+                    onMouseLeave={e => (e.currentTarget.style.animationPlayState = "running")}
+                >
+                    {[...clients, ...clients].map((client, i) => (
+                        <div
+                            key={i}
+                            className="flex items-center gap-3 mx-12 select-none cursor-default"
+                        >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={client.logo}
+                                alt={client.name}
+                                className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"
+                                onError={e => { e.currentTarget.style.display = "none"; }}
+                            />
+                            <span className="text-base font-semibold text-gray-600 whitespace-nowrap hover:text-gray-900 transition-colors duration-200">
+                                {client.name}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Keyframe — scoped inline to avoid Tailwind config changes */}
+            <style>{`
+        @keyframes clients-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+        </div>
+    );
+};
+
+export default ClientsStrip;
