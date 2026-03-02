@@ -18,7 +18,7 @@ const HeaderSlider = () => {
     {
       id: 2,
       type: "video",
-      videoSrc: "/vision.mp4",
+      videoSrc: "/Vision_Glass_Interior_Promotional_Video.mp4",
     },
     {
       id: 3,

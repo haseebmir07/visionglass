@@ -46,6 +46,9 @@ const Navbar = () => {
                 <a href="https://www.instagram.com/visionglassinteriors?igsh=MTYyOHQ5Nnp4MDRuZw==">
                   <Image src={assets.instagram_icon} alt="instagram_icon" />
                 </a>
+                 <a href="#">
+                                <Image src={assets.twitter_icon} alt="twitter_icon" />
+                              </a>
               </div>
 
       </div>

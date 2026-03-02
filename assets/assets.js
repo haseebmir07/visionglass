@@ -54,6 +54,7 @@ import owner2 from "./owner2.jpeg";
 import abrar from "./abrar.jpeg";
 import umar from "./umar.png"
 import uncle from "./uncle.png"
+import showercubicles from "./showercubicles.jpg";
 
 export const assets = {
   logo,
@@ -112,6 +113,7 @@ export const assets = {
   abrar,
   umar,
   uncle,
+  showercubicles,
 };
 
 export const BagIcon = () => {

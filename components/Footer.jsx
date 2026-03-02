@@ -4,73 +4,83 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="bg-white">
       <div id="bottom">
-      <div className="flex flex-col md:flex-row items-start justify-center px-6 md:px-16 lg:px-32 gap-10 py-14 border-b border-gray-500/30 text-gray-500">
-        <div className="w-4/5">
-          <Image className="w-28 md:w-32" src={assets.logo} alt="logo" />
-          <p className="mt-6 text-sm">
-          Vision Glass & Interiors stands at the forefront of the glass manufacturing and interior design industry, delivering exceptional craftsmanship and innovative solutions for residential, commercial, and industrial environments.
-          </p>
-          <p className="mt-6 text-sm"> Driven by cutting-edge technology and a passion for precision, we offer an extensive portfolio of premium glass products — including toughened, laminated, decorative, and bespoke glass solutions designed to elevate modern spaces.</p>
-          <p className="mt-6 text-sm">
-         Our interior solutions merge durability with contemporary elegance, enhancing natural light, openness, and architectural sophistication. Every project reflects our unwavering commitment to quality, innovation, and detail.
 
-At Vision Glass & Interiors, we do more than install glass — we transform environments. Experience refined craftsmanship, dependable quality, and tailored solutions that bring your vision to life.
-        </p>
-        </div>
+        <div className="flex flex-col lg:flex-row items-start justify-between px-6 md:px-16 lg:px-32 gap-12 py-16 border-b border-gray-300 text-gray-600">
 
-        <div className="w-1/2 flex items-center justify-start md:justify-center">
-          <div>
-            <h2 className="font-medium text-gray-900 mb-5">Company</h2>
-            <ul className="text-sm space-y-2">
-              <li>
-                <a className="hover:underline transition" href="/">Home</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">About us</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">Contact us</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">Privacy policy</a>
-              </li>
+          {/* Company Info */}
+          <div className="lg:w-1/3">
+            <Image className="w-28 md:w-32" src={assets.logo} alt="logo" />
+            <p className="mt-6 text-sm leading-relaxed">
+              Vision Glass & Interiors stands at the forefront of the glass manufacturing and interior design industry, delivering exceptional craftsmanship and innovative solutions.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed">
+              We transform spaces through premium glass solutions and modern interior excellence.
+            </p>
+          </div>
+
+          {/* Company Links */}
+          <div className="lg:w-1/6">
+            <h2 className="font-semibold text-gray-900 mb-5">Company</h2>
+            <ul className="text-sm space-y-3">
+              <li><a className="hover:text-orange-600 transition" href="/">Home</a></li>
+              <li><a className="hover:text-orange-600 transition" href="#">About us</a></li>
+              <li><a className="hover:text-orange-600 transition" href="#">Contact us</a></li>
+              <li><a className="hover:text-orange-600 transition" href="#">Privacy policy</a></li>
             </ul>
           </div>
-        </div>
 
-        <div className="w-1/2 flex items-start justify-start md:justify-center">
-          <div>
-            <h2 className="font-medium text-gray-900 mb-4">Get in touch</h2>
-               <div className="flex items-center gap-2 mb-3">
-                    <a href="#">
-                      <Image src={assets.facebook_icon} alt="facebook_icon" />
-                    </a>
-                    {/* <a href="#">
-                      <Image src={assets.twitter_icon} alt="twitter_icon" />
-                    </a> */}
-                    <a href="https://www.instagram.com/visionglassinteriors?igsh=MTYyOHQ5Nnp4MDRuZw==">
-                      <Image src={assets.instagram_icon} alt="instagram_icon" />
-                    </a>
-                  </div>
+          {/* Contact Info */}
+          <div className="lg:w-1/4">
+            <h2 className="font-semibold text-gray-900 mb-5">Get in Touch</h2>
+
+            <div className="flex items-center gap-3 mb-4">
+              <a href="#">
+                <Image src={assets.facebook_icon} alt="facebook_icon" />
+              </a>
+              <a href="https://www.instagram.com/visionglassinteriors">
+                <Image src={assets.instagram_icon} alt="instagram_icon" />
+              </a>
+              <a href="#">
+                <Image src={assets.twitter_icon} alt="twitter_icon" />
+              </a>
+            </div>
+
             <div className="text-sm space-y-2">
               <p>+91-8880605191</p>
-              {/* <p>+91-9419063702</p> */}
-              <p> bookings.visionglassinteriors@gmail.com</p>
-              <p>Jp Nagar 9th Phase, Bengaluru, Karnataka 560078
-              </p>
+              <p>bookings.visionglassinteriors@gmail.com</p>
+              <p>JP Nagar 9th Phase, Bengaluru, Karnataka 560078</p>
             </div>
           </div>
+
+          {/* Google Map Section */}
+          <div className="lg:w-1/3 w-full">
+            <h2 className="font-semibold text-gray-900 mb-5">
+              Our Location
+            </h2>
+
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.511230397605!2d77.56026877592141!3d12.874814587431647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15709fb0ec17%3A0x2c477abb645e088e!2sVision%20Glass%20%26%20Interiors!5e0!3m2!1sen!2sin!4v1772480532748!5m2!1sen!2sin" 
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
         </div>
-      </div>
-      {/* <p className="py-4 text-center text-xs md:text-sm">
-        Copyright 2025 © Developed And Designed By Mohammad Haseeb Mir All Right Reserved.
-      </p> */}
-      <p className="py-4 text-center text-xs md:text-sm">
-        <strong>© Vision Glass & Interiors , All Right Reserved .</strong> Developed And Designed By Mohammad Haseeb Mir.
-      </p>
-      
+
+        {/* Bottom Copyright */}
+        <p className="py-5 text-center text-xs md:text-sm text-gray-500">
+          <strong>© Vision Glass & Interiors. All Rights Reserved.</strong>
+          {" "}Developed and Designed by Mohammad Haseeb Mir.
+        </p>
+
       </div>
     </footer>
   );
