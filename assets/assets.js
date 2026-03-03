@@ -55,6 +55,14 @@ import abrar from "./abrar.jpeg";
 import umar from "./umar.png"
 import uncle from "./uncle.png"
 import showercubicles from "./showercubicles.jpg";
+import gp1 from "./gp1.jpeg";
+import officespace from "./officespace.jpeg";
+import sc1 from "./sc1.png";
+import os1 from "./os1.png";
+import op1 from "./op1.jpeg";
+import gd1 from "./gd1.png";
+import stairs1 from "./stairs1.png";
+import slider4 from "./slider4.jpeg";
 
 export const assets = {
   logo,
@@ -114,6 +122,14 @@ export const assets = {
   umar,
   uncle,
   showercubicles,
+  gp1,
+  officespace,
+  sc1,
+  os1,
+  op1,
+  gd1,
+  stairs1,
+  slider4,
 };
 
 export const BagIcon = () => {

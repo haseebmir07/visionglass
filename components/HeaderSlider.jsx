@@ -34,7 +34,7 @@ const HeaderSlider = () => {
       title:
         "Choosing us means embracing Luxury, Quality, and Care.",
       offer: "Vision Glass & Interiors",
-      imgSrc: assets.stuff,
+      imgSrc: assets.slider4,
     },
   ];
 

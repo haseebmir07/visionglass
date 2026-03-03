@@ -1,27 +1,14 @@
 "use client";
 import React from "react";
 
-/**
- * ClientsStrip — scrolling marquee of esteemed client logos
- *
- * HOW TO ADD/CHANGE LOGOS:
- *  1. Drop the image file into /public/clients/  (PNG, JPG, SVG, WEBP)
- *  2. Update the `clients` array below to match the filename
- *  3. The strip hot-reloads automatically
- */
+
 const clients = [
     { name: "", logo: "/clients/brikoven.png" },
     { name: "", logo: "/clients/abd.png" },
     { name: "", logo: "/clients/bpl.png" },
     { name: "", logo: "/clients/ro.png" },
     { name: "UB City", logo: "/clients/ub.png" },
-    // { name: "Blinkit", logo: "/clients/blinkit.png" },
-    // { name: "Zepto", logo: "/clients/zepto.png" },
-    // { name: "Swiggy", logo: "/clients/swiggy.png" },
-    // { name: "Lenskart", logo: "/clients/lenskart.png" },
-    // { name: "Urban Company", logo: "/clients/urbancompany.png" },
-    // { name: "PhonePe", logo: "/clients/phonepe.png" },
-    // { name: "Nykaa", logo: "/clients/nykaa.png" },
+    
 ];
 
 const ClientsStrip = () => {

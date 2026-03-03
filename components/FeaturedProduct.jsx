@@ -41,25 +41,41 @@ const projects = [
     title: "Luxury Glass Partition",
     description: "Premium frameless office partition installation.",
   },
-  {
-    image: assets.showercubicles,
+   {
+    image: assets.sc1,
     title: "Modern Shower Cubicle",
+    description: "Premium Frameless Glass Shower Cubicle with Gold Finish Hardware.",
+  },
+  {
+    image: assets.gp1,
+    title: "Modern Office Partition",
     description: "Elegant glass cubicle with matte black fittings.",
   },
   {
-    image: assets.project3,
-    title: "LED Mirror Installation",
-    description: "Custom backlit LED mirror for luxury interiors.",
+    image: assets.officespace,
+    title: "Premium Office Space",
+    description: "Custom space for luxury interiors.",
+  },
+ 
+  {
+    image: assets.os1,
+    title: "Office Space Design",
+    description: "Office space design for luxury interiors.",
   },
   {
-    image: assets.owner2,
-    title: "LED Mirror Installation",
-    description: "Custom backlit LED mirror for luxury interiors.",
+    image: assets.op1,
+    title: "Outdoor Partition",
+    description: "Premium outdoor glass partition for luxury spaces.",
   },
   {
-    image: assets.akhtarmir,
-    title: "LED Mirror Installation",
-    description: "Custom backlit LED mirror for luxury interiors.",
+    image: assets.gd1,
+    title: "Glass Door ",
+    description: "Premium glass door for luxury interiors.",
+  },
+  {
+    image: assets.stairs1,
+    title: "Staircase Glass Railing",
+    description: "Elegant glass railing for modern staircases.",
   },
 ];
 
@@ -208,7 +224,7 @@ const FeaturedProduct = () => {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50"></div>
+                 <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
 
                   <div className="absolute bottom-12 left-12 text-white max-w-xl">
                     <h3 className="text-3xl md:text-5xl font-bold">
