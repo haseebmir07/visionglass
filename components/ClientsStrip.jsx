@@ -7,8 +7,19 @@ const clients = [
     { name: "", logo: "/clients/abd.png" },
     { name: "", logo: "/clients/bpl.png" },
     { name: "", logo: "/clients/ro.png" },
-    { name: "UB City", logo: "/clients/ub.png" },
-    
+    { name: "", logo: "/clients/ub.png" },
+    { name: "", logo: "/clients/sl.png" },
+    { name: "", logo: "/clients/manyavar.png" },
+    { name: "JW MARRIOTT", logo: "/clients/jw.png" },
+     { name: "The Leela", logo: "/clients/leela.png" },
+     { name: "", logo: "/clients/theritz.png" },
+     { name: "", logo: "/clients/forum.png" },
+     { name: "", logo: "/clients/fortis.png" },
+     { name: "Mantri Square", logo: "/clients/ms.png" },
+     { name: "", logo: "/clients/shoba.png" },
+     { name: "", logo: "/clients/rm.png" },
+     { name: "Prestige Group", logo: "/clients/pres.png" },
+
 ];
 
 const ClientsStrip = () => {
