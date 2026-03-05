@@ -36,6 +36,8 @@ const categories = [
   "Tempered Glass",
   "Lacqued Glass",
   "Etched Glass",
+  "Glass Hardware",
+  
 ];
 
 const ProductList = () => {
