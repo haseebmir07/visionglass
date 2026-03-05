@@ -37,7 +37,27 @@ const categories = [
   "Lacqued Glass",
   "Etched Glass",
   "Glass Hardware",
-  
+  "Mirror Fixing",
+  "Mirror Cladding ",
+  "Digital Print Glass",
+  "Frameless Partition",
+  "Profile System Partition",
+  "With Frame Partition",
+  "90° Shower Partition",
+  "Glass Blocks",
+  "Spider Laminated Glass",
+  "Balcony Railing",
+  "Staircase Railing",
+  "Curved Railing",
+  "Diamond Coating",
+  "Nano Coating",
+  "Safety Glass",
+  "Skylight Glass Work",
+  "Glass Facade",
+  "SoundProof Glass",
+  "Laminated Glass",
+  "Glass Pillar",
+
 ];
 
 const ProductList = () => {

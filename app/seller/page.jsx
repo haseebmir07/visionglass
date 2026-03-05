@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const categories = [
-   "LED Mirrors",
+  "LED Mirrors",
   "Frame Mirrors",
   "LED With Frame Mirrors",
   "Shower Cubicles",
@@ -34,6 +34,26 @@ const categories = [
   "Lacqued Glass",
   "Etched Glass",
   "Glass Hardware",
+  "Mirror Fixing",
+  "Mirror Cladding ",
+  "Digital Print Glass",
+  "Frameless Partition",
+  "Profile System Partition",
+  "With Frame Partition",
+  "90° Shower Partition",
+  "Glass Blocks",
+  "Spider Laminated Glass",
+  "Balcony Railing",
+  "Staircase Railing",
+  "Curved Railing",
+  "Diamond Coating",
+  "Nano Coating",
+  "Safety Glass",
+  "Skylight Glass Work",
+  "Glass Facade",
+  "SoundProof Glass",
+  "Laminated Glass",
+  "Glass Pillar",
 ];
 
 const AddProduct = () => {
