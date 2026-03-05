@@ -49,7 +49,9 @@ const Footer = () => {
 
             <div className="text-sm space-y-2">
               <p>+91-8880605191</p>
-              <p>bookings.visionglassinteriors@gmail.com</p>
+              <p>+91-9742774825</p>
+              <p>+91-9986588123</p>
+              <p>visionglassinteriors@gmail.com</p>
               <p>JP Nagar 9th Phase, Bengaluru, Karnataka 560078</p>
             </div>
           </div>

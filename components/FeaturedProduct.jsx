@@ -29,9 +29,9 @@ const team = [
 /* ================= ULTRA PREMIUM STATS ================= */
 const stats = [
   { number: 15, suffix: "+", label: "Years of Experience" },
-  { number: 1350, suffix: "+", label: "Completed Projects" },
-  { number: 820, suffix: "+", label: "Happy Clients" },
-  { number: 25, suffix: "+", label: "Ongoing Projects" },
+  { number: 6895, suffix: "+", label: "Completed Projects" },
+  { number: 4820, suffix: "+", label: "Happy Clients" },
+  { number: 45, suffix: "+", label: "Ongoing Projects" },
 ];
 
 /* ================= PROJECT SLIDER ================= */

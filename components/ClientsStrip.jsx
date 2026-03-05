@@ -19,6 +19,16 @@ const clients = [
      { name: "Shoba", logo: "/clients/shoba.png" },
      { name: "", logo: "/clients/rm.png" },
      { name: "Prestige Group", logo: "/clients/pres.png" },
+     { name: "ADARSH PALM", logo: "/clients/ADARSH PALM.png" },
+     { name: "", logo: "/clients/malabar.png" },
+     { name: "", logo: "/clients/bhima.png" },
+     { name: "", logo: "/clients/anand.jpeg" },
+     { name: "", logo: "/clients/ASPIRE INDUSTRIAL.jpg.jpeg" },
+     { name: "BRIGADE", logo: "/clients/BRIGADE.jpg.jpeg" },
+     { name: "", logo: "/clients/dd.jpeg" },
+     { name: "Indus Valley", logo: "/clients/indus-valley.png" },
+     { name: "Valley", logo: "/clients/VALLEY.jpg.jpeg" },
+     { name: "VED ACADEMY", logo: "/clients/VED ACADEMY.png" },
 
 ];
 
