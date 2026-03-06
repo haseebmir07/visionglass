@@ -61,7 +61,7 @@ const GoogleIcon = () => (
 const GoogleReviews = () => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [stats, setStats] = useState({ rating: 4.9, total: 124 }); // Fallback stats
+    const [stats, setStats] = useState({ rating: 4.94, total: 250 }); // Fallback stats
 
     useEffect(() => {
         const fetchReviews = async () => {
@@ -109,13 +109,13 @@ const GoogleReviews = () => {
                             <div className="flex gap-1">
                                 {[...Array(Math.round(stats.rating || 5))].map((_, i) => <Star key={i} />)}
                             </div>
-                            <span className="text-sm text-gray-500 ml-1">Based on {stats.total} reviews</span>
+                            <span className="text-sm text-gray-500 ml-1">Based on {stats.total}+ reviews</span>
                         </div>
                     </div>
                 </div>
 
                 <a
-                    href="https://google.com"
+                    href="https://search.google.com/local/writereview?placeid=ChIJF-ywn3AVrjsRjgheZLt6Ryw"
                     target="_blank"
                     rel="noreferrer"
                     className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 transition-colors text-white text-sm font-semibold rounded-lg shadow-md"

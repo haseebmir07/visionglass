@@ -41,10 +41,11 @@ const projects = [
     title: "Luxury Glass Partition",
     description: "Premium frameless office partition installation.",
   },
-   {
+  {
     image: assets.sc1,
     title: "Modern Shower Cubicle",
-    description: "Premium Frameless Glass Shower Cubicle with Gold Finish Hardware.",
+    description:
+      "Premium Frameless Glass Shower Cubicle with Gold Finish Hardware.",
   },
   {
     image: assets.gp1,
@@ -56,7 +57,6 @@ const projects = [
     title: "Premium Office Space",
     description: "Custom space for luxury interiors.",
   },
- 
   {
     image: assets.os1,
     title: "Office Space Design",
@@ -69,7 +69,7 @@ const projects = [
   },
   {
     image: assets.gd1,
-    title: "Glass Door ",
+    title: "Glass Door",
     description: "Premium glass door for luxury interiors.",
   },
   {
@@ -91,12 +91,13 @@ const FeaturedProduct = () => {
     return () => clearInterval(interval);
   }, []);
 
-  /* ================= ULTRA STATS ANIMATION ================= */
+  /* ================= STATS ANIMATION ================= */
   const [counts, setCounts] = useState(stats.map(() => 0));
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const section = document.getElementById("stats-section");
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -143,55 +144,57 @@ const FeaturedProduct = () => {
   return (
     <div className="mt-14">
 
-      {/* ================= OUR TEAM ================= */}
+      {/* ================= OUR EXPERIENCE ================= */}
       <div className="flex flex-col items-center">
         <p className="text-3xl font-medium">Our Experience</p>
         <div className="w-28 h-0.5 bg-orange-600 mt-2"></div>
       </div>
 
-     
-
-
       {/* ================= LUXURY BANNER ================= */}
-      <div className="relative h-[60vh] mt-2 flex items-center justify-center text-white overflow-hidden">
+      <div className="relative h-[40vh] md:h-[60vh] mt-2 flex items-center justify-center text-white overflow-hidden">
         <Image
           src={assets.owner2}
           alt="Glass Background"
           fill
-          className="object-cover"
+          className="object-cover object-center"
         />
+
         <div className="absolute inset-0 bg-black/70"></div>
-        <div className="relative text-center px-6 space-y-6">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-wide">
+
+        <div className="relative text-center px-6 space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-6xl font-bold tracking-wide">
             Crafting Glass Excellence
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+
+          <p className="text-sm md:text-xl text-gray-300 max-w-2xl mx-auto">
             Transforming Spaces with Precision, Luxury & Innovation
           </p>
         </div>
       </div>
 
-
-      {/* ================= ULTRA PREMIUM STATS ================= */}
+      {/* ================= STATS ================= */}
       <div
         id="stats-section"
-        className="py-28 bg-black text-white relative overflow-hidden"
+        className="py-20 md:py-28 bg-black text-white relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-orange-500/10"></div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 px-6 relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 px-6 relative z-10">
           {stats.map((item, index) => (
             <div
               key={index}
-              className={`backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10 text-center transform transition duration-700 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              className={`backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 md:p-10 text-center transform transition duration-700 ${
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
             >
-              <h3 className="text-4xl md:text-5xl font-extrabold text-orange-500 drop-shadow-lg animate-pulse">
+              <h3 className="text-3xl md:text-5xl font-extrabold text-orange-500 drop-shadow-lg animate-pulse">
                 {counts[index].toLocaleString()}
                 {item.suffix}
               </h3>
-              <p className="mt-4 text-gray-300 tracking-wide">
+
+              <p className="mt-4 text-gray-300 tracking-wide text-sm md:text-base">
                 {item.label}
               </p>
             </div>
@@ -199,38 +202,44 @@ const FeaturedProduct = () => {
         </div>
       </div>
 
-
       {/* ================= PROJECT SLIDER ================= */}
-      <div className="bg-gray-50 py-24 px-5">
+      <div className="bg-gray-50 py-16 md:py-24 px-5">
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
               Our Completed Projects
             </h2>
+
             <div className="w-24 h-1 bg-orange-600 mx-auto mt-4 rounded-full"></div>
           </div>
 
-          <div className="relative w-full h-[75vh] overflow-hidden rounded-3xl shadow-2xl">
+          <div className="relative w-full h-[45vh] md:h-[75vh] overflow-hidden rounded-3xl shadow-2xl">
+
             <div
               className="flex h-full transition-transform duration-1000 ease-in-out"
               style={{ transform: `translateX(-${current * 100}%)` }}
             >
               {projects.map((project, index) => (
-                <div key={index} className="relative w-full h-full flex-shrink-0">
+                <div
+                  key={index}
+                  className="relative w-full h-full flex-shrink-0"
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                   />
-                 <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
 
-                  <div className="absolute bottom-12 left-12 text-white max-w-xl">
-                    <h3 className="text-3xl md:text-5xl font-bold">
+                  <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+                  <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 text-white max-w-xs md:max-w-xl">
+                    <h3 className="text-xl md:text-5xl font-bold">
                       {project.title}
                     </h3>
-                    <p className="mt-4 text-lg text-gray-300">
+
+                    <p className="mt-2 md:mt-4 text-sm md:text-lg text-gray-300">
                       {project.description}
                     </p>
                   </div>
@@ -238,7 +247,8 @@ const FeaturedProduct = () => {
               ))}
             </div>
 
-            <div className="absolute bottom-6 right-8 flex gap-3">
+            {/* SLIDER DOTS */}
+            <div className="absolute bottom-4 md:bottom-6 right-4 md:right-8 flex gap-3">
               {projects.map((_, index) => (
                 <button
                   key={index}
@@ -256,23 +266,25 @@ const FeaturedProduct = () => {
         </div>
       </div>
 
-
       {/* ================= CALL TO ACTION ================= */}
-      <div className="bg-black text-white py-24 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold">
+      <div className="bg-black text-white py-20 md:py-24 text-center px-6">
+        <h2 className="text-3xl md:text-5xl font-bold">
           Ready to Elevate Your Space?
         </h2>
-        <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
-          Let's bring your vision to life with precision-crafted glass solutions.
+
+        <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+          Let's bring your vision to life with precision-crafted glass
+          solutions.
         </p>
-       <a
-  href="https://wa.me/918880605191?text=Hello%20Vision%20Glass%20%26%20Interiors,%20I%20would%20like%20to%20enquire%20about%20your%20services."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="mt-8 inline-block bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-full text-lg transition duration-300 text-white"
->
-  Contact Us
-</a>
+
+        <a
+          href="https://wa.me/918880605191?text=Hello%20Vision%20Glass%20%26%20Interiors,%20I%20would%20like%20to%20enquire%20about%20your%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-block bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-full text-lg transition duration-300 text-white"
+        >
+          Contact Us
+        </a>
       </div>
 
     </div>
