@@ -67,6 +67,8 @@ const AddProduct = () => {
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
   const [sizes, setSizes] = useState([""]);
+  const [sqftPricing, setSqftPricing] = useState(false);
+  const [pricePerSqFt, setPricePerSqFt] = useState('');
   const [loading, setLoading] = useState(false);
 
   const MAX_SIZE = 1024 * 1024;
@@ -88,8 +90,14 @@ const AddProduct = () => {
       formData.append('name', name);
       formData.append('description', description);
       formData.append('category', category);
-      formData.append('price', price);
-      formData.append('offerPrice', offerPrice);
+      formData.append('pricingType', sqftPricing ? 'sqft' : 'fixed');
+
+      if (sqftPricing) {
+        formData.append('pricePerSqFt', pricePerSqFt);
+      } else {
+        formData.append('price', price);
+        formData.append('offerPrice', offerPrice);
+      }
 
       // ✅ Send dynamic sizes
       formData.append(
@@ -124,6 +132,8 @@ const AddProduct = () => {
         setPrice('');
         setOfferPrice('');
         setSizes([""]);
+        setSqftPricing(false);
+        setPricePerSqFt('');
 
       } else {
         toast.error(data.message);
@@ -229,39 +239,90 @@ const AddProduct = () => {
           required
         />
 
-        {/* ================= CATEGORY + PRICE ================= */}
+        {/* ================= CATEGORY ================= */}
 
-        <div className="flex gap-4 flex-wrap">
+        <select
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+          className="border p-2 rounded w-full"
+        >
+          {categories.map(c =>
+            <option key={c} value={c}>{c}</option>
+          )}
+        </select>
 
-          <select
-            value={category}
-            onChange={e => setCategory(e.target.value)}
-            className="border p-2 rounded"
+        {/* ================= SQFT PRICING TOGGLE ================= */}
+
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-medium text-gray-700">
+            Enable Square Feet Pricing
+          </span>
+          <button
+            type="button"
+            id="sqft-toggle"
+            onClick={() => setSqftPricing(prev => !prev)}
+            style={{
+              position: 'relative',
+              display: 'inline-flex',
+              height: '24px',
+              width: '44px',
+              alignItems: 'center',
+              borderRadius: '9999px',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'background-color 0.2s',
+              backgroundColor: sqftPricing ? '#f97316' : '#d1d5db',
+            }}
           >
-            {categories.map(c =>
-              <option key={c} value={c}>{c}</option>
-            )}
-          </select>
-
-          <input
-            type="number"
-            value={price}
-            onChange={e => setPrice(e.target.value)}
-            placeholder="Price"
-            className="border p-2 rounded"
-            required
-          />
-
-          <input
-            type="number"
-            value={offerPrice}
-            onChange={e => setOfferPrice(e.target.value)}
-            placeholder="Offer Price"
-            className="border p-2 rounded"
-            required
-          />
-
+            <span
+              style={{
+                display: 'inline-block',
+                height: '16px',
+                width: '16px',
+                borderRadius: '9999px',
+                backgroundColor: 'white',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+                transition: 'transform 0.2s',
+                transform: sqftPricing ? 'translateX(24px)' : 'translateX(4px)',
+              }}
+            />
+          </button>
+          {sqftPricing && (
+            <span className="text-xs text-orange-600 font-medium">ON</span>
+          )}
         </div>
+
+        {/* ================= PRICE INPUTS ================= */}
+
+        {!sqftPricing ? (
+          <div className="flex gap-4 flex-wrap">
+            <input
+              type="number"
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+              placeholder="Price (₹)"
+              className="border p-2 rounded flex-1"
+              required
+            />
+            <input
+              type="number"
+              value={offerPrice}
+              onChange={e => setOfferPrice(e.target.value)}
+              placeholder="Offer Price (₹)"
+              className="border p-2 rounded flex-1"
+              required
+            />
+          </div>
+        ) : (
+          <input
+            type="number"
+            value={pricePerSqFt}
+            onChange={e => setPricePerSqFt(e.target.value)}
+            placeholder="Price per sq ft (₹)"
+            className="border p-2 rounded w-full"
+            required
+          />
+        )}
 
         {/* ================= DYNAMIC DIMENSIONS ================= */}
 

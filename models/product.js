@@ -20,12 +20,23 @@ const productSchema = new mongoose.Schema({
 
     price: {
         type: Number,
-        required: true
+        default: 0
     },
 
     offerPrice: {
         type: Number,
-        required: true
+        default: 0
+    },
+
+    pricingType: {
+        type: String,
+        enum: ['fixed', 'sqft'],
+        default: 'fixed'
+    },
+
+    pricePerSqFt: {
+        type: Number,
+        default: 0
     },
 
     image: {

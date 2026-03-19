@@ -31,6 +31,8 @@ export async function POST(request) {
     const category = formData.get("category");
     const price = formData.get("price");
     const offerPrice = formData.get("offerPrice");
+    const pricingType = formData.get("pricingType") || "fixed";
+    const pricePerSqFt = formData.get("pricePerSqFt");
 
     // ✅ NEW: GET SIZES
     const sizesRaw = formData.get("sizes");
@@ -73,8 +75,10 @@ export async function POST(request) {
       name,
       description,
       category,
-      price: Number(price),
-      offerPrice: Number(offerPrice),
+      price: pricingType === 'sqft' ? 0 : Number(price),
+      offerPrice: pricingType === 'sqft' ? 0 : Number(offerPrice),
+      pricingType,
+      pricePerSqFt: pricingType === 'sqft' ? Number(pricePerSqFt) : 0,
       image,
       sizes, // ✅ SAVE SIZES HERE
       date: Date.now()

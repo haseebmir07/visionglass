@@ -13,12 +13,15 @@ export async function PUT(req) {
 
     // ================= BASIC FIELDS =================
 
+    const pricingType = formData.get("pricingType") || "fixed";
     const updates = {
       name: formData.get("name"),
       description: formData.get("description"),
       category: formData.get("category"),
-      price: Number(formData.get("price")),
-      offerPrice: Number(formData.get("offerPrice")),
+      pricingType,
+      price: pricingType === 'sqft' ? 0 : Number(formData.get("price")),
+      offerPrice: pricingType === 'sqft' ? 0 : Number(formData.get("offerPrice")),
+      pricePerSqFt: pricingType === 'sqft' ? Number(formData.get("pricePerSqFt")) : 0,
     };
 
     // ================= ✅ SIZES FIX =================

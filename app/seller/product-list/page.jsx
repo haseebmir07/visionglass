@@ -57,7 +57,6 @@ const categories = [
   "SoundProof Glass",
   "Laminated Glass",
   "Glass Pillar",
-
 ];
 
 const ProductList = () => {
@@ -105,7 +104,9 @@ const ProductList = () => {
       category: product.category,
       price: product.price,
       offerPrice: product.offerPrice,
-      sizes: product.sizes || []
+      sizes: product.sizes || [],
+      pricingType: product.pricingType || 'fixed',
+      pricePerSqFt: product.pricePerSqFt || '',
     });
     setExistingImages(product.image || []);
     setEditImages([]);
@@ -130,11 +131,18 @@ const ProductList = () => {
       const token = await getToken();
       const formData = new FormData();
 
+      // Append basic text fields (skip sizes, pricingType, pricePerSqFt — handled below)
       Object.entries(editData).forEach(([k, v]) => {
-        if (k !== "sizes") {
+        if (k !== "sizes" && k !== "pricingType" && k !== "pricePerSqFt") {
           formData.append(k, v);
         }
       });
+
+      // ✅ Save pricing type
+      formData.append("pricingType", editData.pricingType || 'fixed');
+      if (editData.pricingType === 'sqft') {
+        formData.append("pricePerSqFt", editData.pricePerSqFt || 0);
+      }
 
       // ✅ Save sizes
       formData.append(
@@ -198,6 +206,32 @@ const ProductList = () => {
 
     setDeletingId(null);
   };
+
+  // ================= TOGGLE BUTTON STYLE =================
+
+  const toggleStyle = (active) => ({
+    position: 'relative',
+    display: 'inline-flex',
+    height: '24px',
+    width: '44px',
+    alignItems: 'center',
+    borderRadius: '9999px',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s',
+    backgroundColor: active ? '#f97316' : '#d1d5db',
+  });
+
+  const toggleKnobStyle = (active) => ({
+    display: 'inline-block',
+    height: '16px',
+    width: '16px',
+    borderRadius: '9999px',
+    backgroundColor: 'white',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+    transition: 'transform 0.2s',
+    transform: active ? 'translateX(24px)' : 'translateX(4px)',
+  });
 
   // ================= UI =================
 
@@ -272,6 +306,7 @@ const ProductList = () => {
                     onChange={e =>
                       setEditData({ ...editData, name: e.target.value })
                     }
+                    placeholder="Product Name"
                     className="border p-2 w-full"
                   />
 
@@ -280,6 +315,7 @@ const ProductList = () => {
                     onChange={e =>
                       setEditData({ ...editData, description: e.target.value })
                     }
+                    placeholder="Description"
                     className="border p-2 w-full"
                   />
 
@@ -295,23 +331,65 @@ const ProductList = () => {
                     ))}
                   </select>
 
-                  <input
-                    type="number"
-                    value={editData.price}
-                    onChange={e =>
-                      setEditData({ ...editData, price: e.target.value })
-                    }
-                    className="border p-2"
-                  />
+                  {/* ================= SQFT TOGGLE ================= */}
 
-                  <input
-                    type="number"
-                    value={editData.offerPrice}
-                    onChange={e =>
-                      setEditData({ ...editData, offerPrice: e.target.value })
-                    }
-                    className="border p-2"
-                  />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <span style={{ fontSize: '14px', fontWeight: '500', color: '#374151' }}>
+                      Enable Square Feet Pricing
+                    </span>
+                    <button
+                      type="button"
+                      id="edit-sqft-toggle"
+                      onClick={() =>
+                        setEditData(prev => ({
+                          ...prev,
+                          pricingType: prev.pricingType === 'sqft' ? 'fixed' : 'sqft'
+                        }))
+                      }
+                      style={toggleStyle(editData.pricingType === 'sqft')}
+                    >
+                      <span style={toggleKnobStyle(editData.pricingType === 'sqft')} />
+                    </button>
+                    {editData.pricingType === 'sqft' && (
+                      <span style={{ fontSize: '12px', color: '#ea580c', fontWeight: '600' }}>ON</span>
+                    )}
+                  </div>
+
+                  {/* ================= PRICE INPUTS ================= */}
+
+                  {editData.pricingType !== 'sqft' ? (
+                    <div className="flex gap-3">
+                      <input
+                        type="number"
+                        value={editData.price}
+                        onChange={e =>
+                          setEditData({ ...editData, price: e.target.value })
+                        }
+                        placeholder="Price (₹)"
+                        className="border p-2 flex-1"
+                      />
+
+                      <input
+                        type="number"
+                        value={editData.offerPrice}
+                        onChange={e =>
+                          setEditData({ ...editData, offerPrice: e.target.value })
+                        }
+                        placeholder="Offer Price (₹)"
+                        className="border p-2 flex-1"
+                      />
+                    </div>
+                  ) : (
+                    <input
+                      type="number"
+                      value={editData.pricePerSqFt}
+                      onChange={e =>
+                        setEditData({ ...editData, pricePerSqFt: e.target.value })
+                      }
+                      placeholder="Price per sq ft (₹)"
+                      className="border p-2 w-full"
+                    />
+                  )}
 
                   {/* ================= DYNAMIC DIMENSIONS ================= */}
 
@@ -403,7 +481,11 @@ const ProductList = () => {
                     <div>
                       <h3>{product.name}</h3>
                       <p>{product.category}</p>
-                      <p>₹{product.offerPrice}</p>
+                      {product.pricingType === 'sqft' ? (
+                        <p>₹{product.pricePerSqFt} / sq ft</p>
+                      ) : (
+                        <p>₹{product.offerPrice}</p>
+                      )}
                     </div>
 
                   </div>

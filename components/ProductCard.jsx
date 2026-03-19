@@ -123,38 +123,48 @@ const ProductCard = ({ product }) => {
                     </div>
                 </div>
 
-              {/* PRICE + BUTTON */}
-<div className="flex items-end justify-between w-full mt-2">
+                {/* PRICE + BUTTON */}
+                <div className="flex items-end justify-between w-full mt-2">
 
-    {/* PRICE SECTION */}
-    <div className="flex flex-col">
+                    {/* PRICE SECTION */}
+                    <div className="flex flex-col">
 
-        {/* Offer Price */}
-        <p className="text-base font-bold text-orange-600">
-            {currency}{product.offerPrice}
-        </p>
+                        {product.pricingType === 'sqft' ? (
+                            /* Square Feet Pricing */
+                            <p className="text-base font-bold text-orange-600">
+                                {currency}{product.pricePerSqFt}
+                                <span className="text-xs font-normal text-gray-500 ml-1">/ sq ft</span>
+                            </p>
+                        ) : (
+                            <>
+                                {/* Offer Price */}
+                                <p className="text-base font-bold text-orange-600">
+                                    {currency}{product.offerPrice}
+                                </p>
 
-        {/* Original Price + Discount */}
-        {product.price && product.price > product.offerPrice && (
-            <div className="flex items-center gap-2">
+                                {/* Original Price + Discount */}
+                                {product.price && product.price > product.offerPrice && (
+                                    <div className="flex items-center gap-2">
 
-                <span className="text-xs text-gray-500 line-through">
-                    {currency}{product.price}
-                </span>
+                                        <span className="text-xs text-gray-500 line-through">
+                                            {currency}{product.price}
+                                        </span>
 
-                <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded">
-                    {Math.round(
-                        ((product.price - product.offerPrice) / product.price) * 100
-                    )}% OFF
-                </span>
+                                        <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded">
+                                            {Math.round(
+                                                ((product.price - product.offerPrice) / product.price) * 100
+                                            )}% OFF
+                                        </span>
 
-            </div>
-        )}
+                                    </div>
+                                )}
+                            </>
+                        )}
 
-    </div>
+                    </div>
 
-    {/* BUY BUTTON */}
-    <button className="
+                    {/* BUY BUTTON */}
+                    <button className="
         max-sm:hidden 
         px-4 py-1.5 
         text-white 
@@ -166,10 +176,10 @@ const ProductCard = ({ product }) => {
         group-hover:translate-y-0
         transition-all duration-500
     ">
-        Buy now
-    </button>
+                        Buy now
+                    </button>
 
-</div>
+                </div>
             </div>
         </>
     )

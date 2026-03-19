@@ -50,16 +50,19 @@ const Product = () => {
 
   if (!productData) return <Loading />;
 
+  const isSqft = productData.pricingType === 'sqft';
+
   const hasDiscount =
+    !isSqft &&
     productData.price &&
     productData.price > productData.offerPrice;
 
   const discountPercent = hasDiscount
     ? Math.round(
-        ((productData.price - productData.offerPrice) /
-          productData.price) *
-          100
-      )
+      ((productData.price - productData.offerPrice) /
+        productData.price) *
+      100
+    )
     : 0;
 
   return (
@@ -121,30 +124,46 @@ const Product = () => {
             {/* ================= PRICE SECTION ================= */}
             <div className="mt-6 border-b pb-6">
 
-              <div className="flex items-center gap-4">
-
-                <p className="text-3xl font-bold text-orange-500">
-                  ₹{productData.offerPrice}
-                </p>
-
-                {hasDiscount && (
-                  <p className="text-lg text-gray-500 line-through">
-                    ₹{productData.price}
+              {isSqft ? (
+                /* Square Feet Pricing */
+                <div>
+                  <p className="text-3xl font-bold text-orange-500">
+                    ₹{productData.pricePerSqFt}
+                    <span className="text-lg font-normal text-gray-500 ml-2">/sq ft</span>
                   </p>
-                )}
+                  <p className="text-sm text-gray-500 mt-1">
+                    Final price calculated based on dimensions selected
+                  </p>
+                </div>
+              ) : (
+                /* Fixed Pricing */
+                <div>
+                  <div className="flex items-center gap-4">
 
-                {hasDiscount && (
-                  <span className="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium">
-                    {discountPercent}% OFF
-                  </span>
-                )}
+                    <p className="text-3xl font-bold text-orange-500">
+                      ₹{productData.offerPrice}
+                    </p>
 
-              </div>
+                    {hasDiscount && (
+                      <p className="text-lg text-gray-500 line-through">
+                        ₹{productData.price}
+                      </p>
+                    )}
 
-              {hasDiscount && (
-                <p className="text-sm text-gray-500 mt-1">
-                  You save ₹{productData.price - productData.offerPrice}
-                </p>
+                    {hasDiscount && (
+                      <span className="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium">
+                        {discountPercent}% OFF
+                      </span>
+                    )}
+
+                  </div>
+
+                  {hasDiscount && (
+                    <p className="text-sm text-gray-500 mt-1">
+                      You save ₹{productData.price - productData.offerPrice}
+                    </p>
+                  )}
+                </div>
               )}
 
             </div>
@@ -171,11 +190,10 @@ const Product = () => {
                       setIsCustom(false);
                       setSelectedDimension(dimension);
                     }}
-                    className={`px-5 py-3 border rounded-lg text-sm transition ${
-                      selectedDimension === dimension && !isCustom
+                    className={`px-5 py-3 border rounded-lg text-sm transition ${selectedDimension === dimension && !isCustom
                         ? "bg-black text-white border-black"
                         : "hover:border-black"
-                    }`}
+                      }`}
                   >
                     {dimension}
                   </button>
@@ -186,11 +204,10 @@ const Product = () => {
                     setIsCustom(true);
                     setSelectedDimension(null);
                   }}
-                  className={`px-5 py-3 border rounded-lg text-sm transition ${
-                    isCustom
+                  className={`px-5 py-3 border rounded-lg text-sm transition ${isCustom
                       ? "bg-black text-white border-black"
                       : "hover:border-black"
-                  }`}
+                    }`}
                 >
                   Custom Size
                 </button>
