@@ -261,8 +261,8 @@ const OrderSummary = () => {
         </div>
 
         <div className="flex justify-between">
-          <p>Tax (5%)</p>
-          <p>{currency}{Math.floor(getCartAmount() * 0.05)}</p>
+          <p>GST (18%)</p>
+          <p>{currency}{Math.floor(getCartAmount() * 0.18)}</p>
         </div>
 
         <div className="flex justify-between font-semibold border-t pt-2">
