@@ -27,6 +27,9 @@ const Navbar = () => {
         <Link href="/all-products" className="hover:text-gray-900 transition">
           Shop
         </Link>
+        <Link href="/blog" className="hover:text-gray-900 transition">
+          Blog
+        </Link>
         <Link href="#bottom" className="hover:text-gray-900 transition">
           About Us
         </Link>
@@ -65,6 +68,9 @@ const Navbar = () => {
           <UserButton.Action label="Products" labelIcon={<BoxIcon/>} onClick={()=>router.push('/all-products')} />
           </UserButton.MenuItems>
           <UserButton.MenuItems>
+          <UserButton.Action label="Blog" labelIcon={<BoxIcon/>} onClick={()=>router.push('/blog')} />
+          </UserButton.MenuItems>
+          <UserButton.MenuItems>
           <UserButton.Action label="Cart" labelIcon={<CartIcon/>} onClick={()=>router.push('/cart')} />
           </UserButton.MenuItems>
           <UserButton.MenuItems>
@@ -87,6 +93,9 @@ const Navbar = () => {
           </UserButton.MenuItems>
           <UserButton.MenuItems>
           <UserButton.Action label="Products" labelIcon={<BoxIcon/>} onClick={()=>router.push('/all-products')} />
+          </UserButton.MenuItems>
+          <UserButton.MenuItems>
+          <UserButton.Action label="Blog" labelIcon={<BoxIcon/>} onClick={()=>router.push('/blog')} />
           </UserButton.MenuItems>
           <UserButton.MenuItems>
           <UserButton.Action label="Cart" labelIcon={<CartIcon/>} onClick={()=>router.push('/cart')} />

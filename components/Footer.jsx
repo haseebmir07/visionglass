@@ -52,7 +52,7 @@ const Footer = () => {
               <p>+91-9742774825</p>
               <p>+91-9986588123</p>
               <p>visionglassinteriors@gmail.com</p>
-              <p>JP Nagar 9th Phase, Bengaluru, Karnataka 560078</p>
+              <p> 18, 2nd Cross Rd, Ayyappa Nagar, Konanakunte, Bengaluru, Karnataka 560108</p>
             </div>
           </div>
 
@@ -64,7 +64,7 @@ const Footer = () => {
 
             <div className="rounded-xl overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.511230397605!2d77.56026877592141!3d12.874814587431647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15709fb0ec17%3A0x2c477abb645e088e!2sVision%20Glass%20%26%20Interiors!5e0!3m2!1sen!2sin!4v1772480532748!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.511230397605!2d77.56026877592141!3d12.874814587431647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15709fb0ec17%3A0x2c477abb645e088e!2sVision%20Glass%20%26%20Interiors!5e0!3m2!1sen!2sin!4v1772480532748!5m2!1sen!2sin"
                 width="100%"
                 height="250"
                 style={{ border: 0 }}
