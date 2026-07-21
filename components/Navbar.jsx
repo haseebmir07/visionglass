@@ -30,7 +30,7 @@ const Navbar = () => {
         <Link href="/blog" className="hover:text-gray-900 transition">
           Blog
         </Link>
-        <Link href="#bottom" className="hover:text-gray-900 transition">
+        <Link href="/about" className="hover:text-gray-900 transition">
           About Us
         </Link>
         <Link href="#bottom" className="hover:text-gray-900 transition">
