@@ -243,17 +243,15 @@ const AboutPage = () => {
     {/* RIGHT IMAGE */}
     <div className="relative flex justify-end">
 
-     <div className="relative h-[600px] md:h-[700px] lg:h-[850px] w-full max-w-[1100px] overflow-hidden rounded-[40px] shadow-[0_50px_120px_rgba(0,0,0,0.22)] group">
-
+   <div className="relative w-full max-w-[1100px] aspect-[3/2] overflow-visible bg-transparent group">
   <Image
     src="/images/about-vision-glass.png"
     alt="Vision Glass & Interiors"
     fill
     priority
     sizes="(max-width:768px) 100vw, 60vw"
-    className="object-cover object-center transition duration-700 group-hover:scale-105"
+    className="object-contain object-center transition duration-700 group-hover:scale-105"
   />
-
 </div>
 
       {/* Floating Experience Card */}
@@ -412,7 +410,7 @@ const AboutPage = () => {
             </div>
             <div className="flex items-center justify-start lg:justify-end">
               <Link
-                href="/contact"
+                href="#"
                 className="inline-flex rounded-full bg-[#B8963E] px-8 py-4 text-sm font-semibold uppercase tracking-[0.1em] text-[#1B2A3B] transition hover:bg-[#d4b35a]"
               >
                 Request a Free Quote
